@@ -1,8 +1,8 @@
 import * as React from "react";
+import { StyledComponentClass } from "styled-components";
+import styled, { IThemeInterface } from "../theme";
 
-import styled from "../theme";
-
-interface QuoteAuthorProps {
+export interface QuoteAuthorProps {
   className?: string;
 }
 
@@ -12,7 +12,13 @@ class QuoteAuthor extends React.Component<QuoteAuthorProps, {}> {
   }
 }
 
-const StyledQuoteAuthor = styled(QuoteAuthor)`
+const StyledQuoteAuthor: StyledComponentClass<
+  QuoteAuthorProps,
+  IThemeInterface,
+  Pick<QuoteAuthorProps, "className"> & {
+    theme?: IThemeInterface | undefined;
+  }
+> = styled(QuoteAuthor)`
   color: #fff;
   font: 400 36px/1.4 "cardo";
   margin: 20px 0;

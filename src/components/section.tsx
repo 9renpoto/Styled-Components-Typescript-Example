@@ -1,8 +1,8 @@
 import * as React from "react";
+import { StyledComponentClass } from "styled-components";
+import styled, { IThemeInterface } from "../theme";
 
-import styled from "../theme";
-
-interface SectionProps {
+export interface SectionProps {
   // see https://github.com/Microsoft/TypeScript/issues/8588
   children?: React.ReactChild;
   className?: string;
@@ -14,7 +14,13 @@ class Section extends React.Component<SectionProps, {}> {
   }
 }
 
-const StyledSection = styled(Section)`
+const StyledSection: StyledComponentClass<
+  SectionProps,
+  IThemeInterface,
+  Pick<SectionProps, "children" | "className"> & {
+    theme?: IThemeInterface | undefined;
+  }
+> = styled(Section)`
   width: 100vw;
   height: 100vh;
   background: #2a2c39;

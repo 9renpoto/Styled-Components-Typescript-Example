@@ -1,4 +1,7 @@
+import { ComponentClass } from "react";
 import * as styledComponents from "styled-components";
+
+export { ComponentClass };
 
 const {
   default: styled,

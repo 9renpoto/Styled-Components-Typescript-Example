@@ -1,8 +1,15 @@
-import styled from "../theme";
+import { StyledComponentClass } from "styled-components";
+import styled, { IThemeInterface } from "../theme";
 
-const Quote = styled.h1`
+const Quote: StyledComponentClass<
+  React.ClassAttributes<HTMLHeadingElement> &
+    React.HTMLAttributes<HTMLHeadingElement>,
+  IThemeInterface,
+  React.ClassAttributes<HTMLHeadingElement> &
+    React.HTMLAttributes<HTMLHeadingElement>
+> = styled.h1`
   color: ${props => props.theme.primaryColor};
-  font: 400 36px/1.4 'cardo';
+  font: 400 36px/1.4 "cardo";
   font-style: italic;
   font-weight: normal;
   text-align: left;
